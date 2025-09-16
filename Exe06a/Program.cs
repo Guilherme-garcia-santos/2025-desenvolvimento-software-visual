@@ -1,58 +1,52 @@
-﻿//Passos para resolver o bubble sort
-//1 - Criar um vetor para receber 100 posições
-//2 - Criar um laço de repetição para percorrer
-//o vetor
-//3 - Preencher cada posição com um valor 
-//aleatório
-//4 - Imprimir o vetor com valores aleatórios
+using Exe06a;
 
-using System.Globalization;
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+//app.MapGet("/", () => "Minha segunda API em C#");
 
-int tamanho = 100;
-int[] vetor = new int[tamanho];
+//app.MapGet("/endereço", () => "Endereço");
 
-Random random = new Random();
-for (int i = 0; i < tamanho; i++)
+//Produto produto = new Produto();
+//produto.Nome = "Mouse";
+//Console.WriteLine("Nome: " + produto.Nome + "Id:" + produto.Id + " Criado em:" + produto.CriadoEm);
+
+//lista de produtos
+
+//var produos = new List<Produto>
+List<Produto> produtos = new List<Produto>
+
+//Produto produto = new Produto();
+//Produto.Nome = "Mouse";
+//produtos.Add(produto);
+
 {
-    vetor[i] = random.Next(1000);
-}
+        new Produto { Nome = "Mouse", Quantidade = 50, Preco = 49.99 },
+        new Produto { Nome = "Teclado", Quantidade = 30, Preco = 120.00 },
+        new Produto { Nome = "Monitor", Quantidade = 20, Preco = 799.99 },
+        new Produto { Nome = "Headset", Quantidade = 15, Preco = 150.00 },
+        new Produto { Nome = "Cabo HDMI", Quantidade = 100, Preco = 25.00 },
+        new Produto { Nome = "Webcam", Quantidade = 10, Preco = 250.00 },
+        new Produto { Nome = "Placa de Vídeo", Quantidade = 5, Preco = 1500.00 },
+        new Produto { Nome = "Mochila para Notebook", Quantidade = 40, Preco = 89.99 },
+        new Produto { Nome = "Microfone", Quantidade = 8, Preco = 180.00 },
+        new Produto { Nome = "Notebook", Quantidade = 12, Preco = 3500.00 }
 
-for (int i = 0; i < tamanho; i++)
+};
+
+
+
+app.MapGet("/", () => "API de Produtos");
+
+//GET: /api/produto/listar
+app.MapGet("/api/produto/listar", () =>
 {
-    Console.Write(vetor[i] + " ");
-}
+    return produtos;
+});
 
-//5 - Percorrer o vetor com valores aleatórios
-//6 - Comparar a posição atual com a próxima
-//7 - Se a posição atual for maior, inverte 
-//os valores
-//8 - Imprimir o vetor com valores ordenados
-
-
-for(int j = 0; j< tamanho - 1; j++){
-    
-for (int i = 0; i < vetor.Length - 1; i++)
-    {
-        int atual = vetor[i];
-        int proximo = vetor[i + 1];
-        if (atual > proximo)
-        {
-            int aux = atual;
-            vetor[i] = proximo;
-            vetor[i + 1] = aux;
-        }
-    }
-}
-
-Console.WriteLine("\n");
-
-
-
-
-for (int i = 0; i < tamanho; i++)
+//POST: /api/produto/cadastrar
+app.MapPost("/api/produto/cadastrar", (Produto produto) =>
 {
-    Console.Write(vetor[i] + " ");
-    
-}
+    produtos.Add(produto);
+});
 
-
+app.Run();
