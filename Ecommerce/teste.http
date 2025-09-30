@@ -1,18 +1,32 @@
 ### Raiz da aplicação
-GET http://localhost:5190
+GET http://localhost:5169
 
 ### Listar os produtos
-GET http://localhost:5190/api/produto/listar
+GET http://localhost:5169/api/produto/listar
 
 ### Buscar produto por nome
-GET http://localhost:5190/api/produto/buscar/Mouse
+GET http://localhost:5169/api/produto/buscar/Mouse
 
 ### Cadastrar produto
-POST http://localhost:5190/api/produto/cadastrar
+POST http://localhost:5169/api/produto/cadastrar
 Content-Type: application/json
 
 {
     "nome" : "Mouse",
+    "quantidade" : 123,
+    "preco" : 57.75
+}
+
+### Remover produto por nome
+DELETE  http://localhost:5169/api/produto/deletar/ca14a622-e611-4281-a254-4bfc8874a5e1
+
+### Alterar
+
+PATCH http://localhost:5169/api/produto/alterar/6f6dc954-cb09-4c25-a6ca-0448fe50991b
+Content-Type: application/json 
+
+{
+    "nome" : "Malzão",
     "quantidade" : 123,
     "preco" : 57.75
 }
