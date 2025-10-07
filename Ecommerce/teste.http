@@ -12,17 +12,17 @@ POST http://localhost:5169/api/produto/cadastrar
 Content-Type: application/json
 
 {
-    "nome" : "Mouse",
+    "nome" : "mouse",
     "quantidade" : 123,
     "preco" : 57.75
 }
 
 ### Remover produto por nome
-DELETE  http://localhost:5169/api/produto/deletar/ca14a622-e611-4281-a254-4bfc8874a5e1
+DELETE  http://localhost:5169/api/produto/deletar/8746bf78-f9ab-41a9-91a5-af0134122488
 
 ### Alterar
 
-PATCH http://localhost:5169/api/produto/alterar/6f6dc954-cb09-4c25-a6ca-0448fe50991b
+PATCH http://localhost:5169/api/produto/alterar/03826dc8-d813-4e6f-ae92-a300506a9918
 Content-Type: application/json 
 
 {
